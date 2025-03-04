@@ -5,15 +5,16 @@
 
     $register_message = "";
 
-    if(isset($_SESSION["is_login"])) {
-        header("location : dashboard.php");
+    if(isset($_SESSION["is_login"]) == true) {
+        header("location: dashboard.php");
     }
 
     if(isset($_POST["register"])){
         $username = $_POST["username"];
         $password = $_POST["password"];
 
-        $sql = "INSERT INTO users (username, password) VALUES 
+        try {
+            $sql = "INSERT INTO users (username, password) VALUES 
         ('$username', '$password')";
 
 
@@ -22,8 +23,10 @@
         }else{
             $register_message = "YAKIN? COBA LAGI DAH..";
         }
-
-
+        }catch(mysqli_sql_exception){
+            $register_message = "USERNAME DAH ADA BRE..";
+        }
+        $db->close();
 
     }
 

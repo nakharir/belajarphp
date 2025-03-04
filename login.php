@@ -4,8 +4,8 @@
 
     $login_message = "";
 
-    if(isset($_SESSION["is_login"])) {
-        header("location : dashboard.php");
+    if(isset($_SESSION["is_login"]) == true) {
+        header("location: dashboard.php");
     }
 
     if(isset($_POST['login'])) {
@@ -25,6 +25,7 @@
         } else {
             $login_message = "GA ADA BOSQUE, ULANG SANA...";
         }
+        $db->close();
     }
 ?>
 
