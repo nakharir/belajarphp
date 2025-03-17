@@ -9,6 +9,10 @@
 <body>
 <?php include "layout/header.html" ?>
 <main>halo saya belajar php</main>
+<div class="typing-container">
+    <span id="typing-text"></span>
+</div>
+<p class="glitch-text">Dibuat oleh Amrizal dengan bantuan GPT</p>
 <?php include "layout/footer.html" ?>
 <script src="script.js"></script>
 </body>
